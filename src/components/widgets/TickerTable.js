@@ -57,15 +57,21 @@ const columns = [
 
 function TickerTable(props) {
   return (
-    <Table dataSource={props.tickers} columns={columns} />
+    <Table
+      loading={props.loading}
+      dataSource={props.tickers}
+      columns={columns}
+    />
   );
 }
 
 TickerTable.propTypes = {
+  loading: PropTypes.bool,
   tickers: PropTypes.array
 };
 
 TickerTable.defaultProps = {
+  loading: false,
   tickers: []
 };
 

@@ -1,29 +1,33 @@
 import React from 'react';
-
-import { Select } from 'antd';
 import PropTypes from 'prop-types';
 
 function CoinSelect(props) {
   return (
-    <Select
+    <select
       style={{ width: '100%' }}
       placeholder="Select currency"
-      onChange={props.handleChange}
+      onChange={(e) => {
+        props.toggleLoading(true);
+        props.handleChange(e.target.value).then(() => {
+          props.toggleLoading(false);
+        });
+      }}
     >
       {
         props.coins.map((value, index) =>
-          <Select.Option key={index} value={value.currencyPair}>
+          <option key={index} value={value.currencyPair}>
             {value.currencyPair}
-          </Select.Option>
+          </option>
         )
       }
-    </Select>
+    </select>
   );
 }
 
 CoinSelect.propTypes = {
   coins: PropTypes.array,
-  handleChange: PropTypes.func.isRequired
+  handleChange: PropTypes.func.isRequired,
+  toggleLoading: PropTypes.func.isRequired
 };
 
 CoinSelect.defaultProps = {
