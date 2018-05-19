@@ -20,3 +20,9 @@ Run in development mode:
 ```console
   npm run dev
 ```
+
+Build production files (dist/bundle.js, dist/styles.css)
+
+```console
+  build:prod
+```

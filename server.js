@@ -1,3 +1,4 @@
+var path = require('path');
 const express = require('express');
 const proxy = require('express-http-proxy');
 const cors = require('cors');
@@ -10,6 +11,12 @@ app.use(
   '/api',
   proxy('https://api.livecoin.net')
 );
+
+app.use(express.static('dist'));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/dist/index.html'));
+});
 
 app.listen(3000, () => {
   console.log('Listening on prot 3000');

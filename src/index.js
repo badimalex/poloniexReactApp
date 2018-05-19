@@ -11,7 +11,7 @@ import configureStore from './store/configureStore';
 
 const store = configureStore();
 
-import 'antd/dist/antd.css';
+import './styles.css';
 
 store.subscribe(() => {
   console.log('store', store.getState());
@@ -23,5 +23,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('app'),
 );
-
-module.hot.accept();
