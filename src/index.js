@@ -1,10 +1,30 @@
+/* eslint-disable no-console */
+
+import 'babel-polyfill';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App';
+import { loadTickers, loadCoins } from './actions';
 
-const title = 'My Minimal React Webpack Babel Setup1';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+
+const store = configureStore();
+
+import 'antd/dist/antd.css';
+
+store.subscribe(() => {
+  console.log('store', store.getState());
+});
+
+store.dispatch(loadTickers());
+store.dispatch(loadCoins());
 
 ReactDOM.render(
-  <div>{title}</div>,
+  <Provider store={store}>
+    <App/>
+  </Provider>,
   document.getElementById('app'),
 );
 
