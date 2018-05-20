@@ -1,0 +1,14 @@
+{
+  "moduleFileExtensions": ["js", "jsx", "json"],
+  "modulePaths": [
+    "<rootDir>/src"
+  ],
+  "unmockedModulePathPatterns": [
+    "<rootDir>/node_modules/"
+  ],
+  "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
+  "transform": {
+    "^.+\\.js$": "babel-jest",
+    "^.+\\.jsx$": "babel-jest"
+  }
+}
