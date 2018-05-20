@@ -3,6 +3,7 @@
     [
       "env",
       {
+        "modules": false, // true when dev
         "targets": {
           "browsers": "> 1%",
           "uglify": true
