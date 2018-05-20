@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { LOAD_TICKERS, LOAD_COINS, LOAD_TICKER } from '../actions';
+import { LOAD_TICKERS, LOAD_COINS, LOAD_TICKER, SET_LOADING } from '../actions';
 
 function withKeys(tickers) {
   let i = 0;
@@ -15,11 +15,20 @@ function withKeys(tickers) {
 function tickers(state = [], action) {
   switch (action.type) {
     case LOAD_TICKERS:
-      return withKeys(action.tickers.data);
+      return withKeys(action.response.data);
     case LOAD_TICKER:
       return [
-        Object.assign(action.ticker.data, { key: 1 })
+        Object.assign(action.response.data, { key: 1 })
       ];
+    default:
+      return state;
+  }
+}
+
+function loading(state = false, action) {
+  switch (action.type) {
+    case SET_LOADING:
+      return action.value;
     default:
       return state;
   }
@@ -28,7 +37,7 @@ function tickers(state = [], action) {
 function coins(state = [], action) {
   switch (action.type) {
     case LOAD_COINS:
-      return action.coins.data.restrictions;
+      return action.response.data.restrictions;
     default:
       return state;
   }
@@ -36,5 +45,6 @@ function coins(state = [], action) {
 
 export default combineReducers({
   tickers,
-  coins
+  coins,
+  loading
 });

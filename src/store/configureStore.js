@@ -1,15 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-
-import axios from 'axios';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
-
-const axiosInstance = axios.create({
-  baseURL: '/api'
-});
+import APIMiddleware from '../middlewares/api';
 
 const enhancer = compose(
-  applyMiddleware(thunk.withExtraArgument(axiosInstance))
+  applyMiddleware(thunk, APIMiddleware)
 );
 
 export default function configureStore(initialState) {

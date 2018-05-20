@@ -6,12 +6,7 @@ function CoinSelect(props) {
     <select
       style={{ width: '100%' }}
       placeholder="Select currency"
-      onChange={(e) => {
-        props.toggleLoading(true);
-        props.handleChange(e.target.value).then(() => {
-          props.toggleLoading(false);
-        });
-      }}
+      onChange={props.handleChange}
     >
       {
         props.coins.map((value, index) =>
@@ -27,7 +22,6 @@ function CoinSelect(props) {
 CoinSelect.propTypes = {
   coins: PropTypes.array,
   handleChange: PropTypes.func.isRequired,
-  toggleLoading: PropTypes.func.isRequired
 };
 
 CoinSelect.defaultProps = {
