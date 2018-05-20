@@ -9,6 +9,7 @@ Clone remote repo to your PC and follow to the newly folder using next commands:
 ~~~sh
 git clone git@github.com:badimalex/poloniexReactApp.git
 cd poloniexReactApp
+yarn install
 ~~~
 
 Run in development mode:
@@ -20,5 +21,5 @@ yarn run dev
 Build production files (dist/bundle.js, dist/styles.css)
 
 ```console
-yarn build:prod
+yarn run build:prod
 ```
