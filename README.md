@@ -14,11 +14,11 @@ cd poloniexReactApp
 Run in development mode:
 
 ~~~sh
-npm run dev
+yarn run dev
 ~~~
 
 Build production files (dist/bundle.js, dist/styles.css)
 
 ```console
-build:prod
+yarn build:prod
 ```
