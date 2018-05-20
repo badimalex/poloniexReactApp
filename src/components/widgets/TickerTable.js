@@ -71,7 +71,6 @@ TickerTable.propTypes = {
 };
 
 TickerTable.defaultProps = {
-  loading: false,
   tickers: []
 };
 

@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon --watch build --exec \"node server.js\"",
-    "dev:build-client": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "build:prod": "./node_modules/.bin/webpack --config webpack.prod.js --mode production"
+    "dev:build-client": "NODE_ENV=development webpack-dev-server --config ./webpack.config.js --mode development",
+    "build:prod": "./node_modules/.bin/webpack --config webpack.prod.js --mode production",
+    "test": "./node_modules/.bin/jest --config ./jest.config.json",
+    "test:watch": "./node_modules/.bin/jest --config ./jest.config.json --watch"
   },
   "keywords": [],
   "author": "",
@@ -41,11 +43,14 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
+    "babel-jest": "^22.4.4",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-destructuring": "^2.1.0",
@@ -53,8 +58,12 @@
     "eslint-plugin-react": "^7.8.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^22.4.4",
     "npm-run-all": "^4.1.3",
+    "react-addons-test-utils": "^15.6.2",
     "react-hot-loader": "^4.2.0",
+    "react-test-renderer": "^16.3.2",
+    "sinon": "^5.0.7",
     "webpack-bundle-analyzer": "^2.12.0"
   }
 }

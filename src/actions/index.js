@@ -1,34 +1,26 @@
-/* eslint-disable no-console */
-
 export const LOAD_TICKERS = 'LOAD_TICKERS';
 export const LOAD_TICKER = 'LOAD_TICKER';
 export const LOAD_COINS = 'LOAD_COINS';
+export const SET_LOADING = 'SET_LOADING';
 
-export const loadTickers = () => async (dispatch, getState, api) => {
-  const tickers = await api.get('/exchange/ticker');
-
-  dispatch({
+export function loadTickers() {
+  return {
+    endpoint: '/exchange/ticker',
     type: LOAD_TICKERS,
-    tickers
-  });
-};
+  };
+}
 
-export const loadTicker = (currencyPair) => async (dispatch, getState, api) => {
-  const ticker = await api.get('/exchange/ticker', {
-    params: { currencyPair }
-  });
-
-  dispatch({
+export function loadTicker(e) {
+  return {
+    endpoint: '/exchange/ticker',
     type: LOAD_TICKER,
-    ticker
-  });
-};
+    query: { currencyPair: e.target.value }
+  };
+}
 
-export const loadCoins = () => async (dispatch, getState, api) => {
-  const coins = await api.get('/exchange/restrictions');
-
-  dispatch({
-    type: LOAD_COINS,
-    coins
-  });
-};
+export function loadCoins() {
+  return {
+    endpoint: '/exchange/restrictions',
+    type: LOAD_COINS
+  };
+}
