@@ -14,6 +14,8 @@ export const tickers = [
   }
 ];
 
+export const ticker = tickers[0];
+
 export const coins = [
   {
     currencyPair: 'BNT/BTC',
