@@ -10,5 +10,6 @@
   "transform": {
     "^.+\\.js$": "babel-jest",
     "^.+\\.jsx$": "babel-jest"
-  }
+  },
+  "collectCoverageFrom" : ["src/**/*.js"]
 }
